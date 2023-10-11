@@ -1,6 +1,7 @@
 #include <iostream>
+#include <string>
 
-class contacts
+class contact
 {
 	private:
 		std::string first_name;
@@ -10,8 +11,8 @@ class contacts
 		std::string darkest_secret;
 
 	public:
-		contacts();
-		~contacts();
+		contact();
+		~contact();
 		void set_first_name(std::string change_name);
 		std::string get_first_name(void);
 		void set_last_name(std::string change_last_name);

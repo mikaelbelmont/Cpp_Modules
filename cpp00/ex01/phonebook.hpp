@@ -1,6 +1,7 @@
 #include <iostream>
 #include "contacts.hpp"
 #include <iomanip>
+#include <cstdlib>
 
 struct data
 {
@@ -10,7 +11,7 @@ struct data
 class phonebook
 {
 	private:
-		contacts contacts[8];
+		contact contacts[8];
 		int size;
 		int index;
 		struct data data[5];

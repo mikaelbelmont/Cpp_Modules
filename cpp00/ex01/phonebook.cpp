@@ -127,5 +127,6 @@ void phonebook::print_header(void)
 
 int phonebook::EXIT()
 {
-	return 0;
+	//system("clear");
+	std::exit(0);
 }

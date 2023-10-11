@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-	std:string input = "";
+	std::string input = "";
 	phonebook phonebook;
 
 	while (!std::cin.eof())
