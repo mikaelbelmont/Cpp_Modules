@@ -1,6 +1,6 @@
-NAME = HI_THIS_IS_BRAIN
+NAME = Harl
 
-SRC = main.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

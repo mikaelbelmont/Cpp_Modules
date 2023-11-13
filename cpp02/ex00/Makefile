@@ -1,6 +1,6 @@
-NAME = HI_THIS_IS_BRAIN
+NAME = Fixed
 
-SRC = main.cpp
+SRC = main.cpp Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -1,4 +1,4 @@
-NAME = HI_THIS_IS_BRAIN
+NAME = Sed_is_for_losers
 
 SRC = main.cpp
 
