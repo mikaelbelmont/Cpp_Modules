@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:26:19 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 15:26:20 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:36:05 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ phonebook::~phonebook(void)
 	std::cout << "Called PhoneBook default destructor" << std::endl;
 }
 
-void phonebook::set_element(std::string element, int i)
+void phonebook::setElement(std::string element, int i)
 {
 	std::string input;
 
@@ -34,29 +34,29 @@ void phonebook::set_element(std::string element, int i)
 	getline(std::cin, this->data[i].value);
 }
 
-void phonebook::set_contact(void)
+void phonebook::setContact(void)
 {
-	this->contacts[this->index].set_first_name(this->data[0].value);
-	this->contacts[this->index].set_last_name(this->data[1].value);
-	this->contacts[this->index].set_nick_name(this->data[2].value);
-	this->contacts[this->index].set_phone_number(this->data[3].value);
-	this->contacts[this->index].set_darkest_secret(this->data[4].value);
+	this->contacts[this->index].setFirstName(this->data[0].value);
+	this->contacts[this->index].setLastName(this->data[1].value);
+	this->contacts[this->index].setNickName(this->data[2].value);
+	this->contacts[this->index].setPhoneNumber(this->data[3].value);
+	this->contacts[this->index].setDarkestSecret(this->data[4].value);
 }
 
 void phonebook::ADD()
 {
-	this->set_element("Enter first name: ", 0);
-	this->set_element("Enter last name: ", 1);
-	this->set_element("Enter nick name: ", 2);
-	this->set_element("Enter phone number: ", 3);
-	this->set_element("Enter darkest secret: ", 4);
+	this->setElement("Enter first name: ", 0);
+	this->setElement("Enter last name: ", 1);
+	this->setElement("Enter nick name: ", 2);
+	this->setElement("Enter phone number: ", 3);
+	this->setElement("Enter darkest secret: ", 4);
 	for (int i = 0; i < 5; i++)
-		if (this->data->value.empty())
+		if (this->data[i].value.empty())
 		{
-			std::cout << "Cannot create contact" << std::endl;
+			std::cout << "Cannot create contact. At least one of the arguments is empty" << std::endl;
 			return ;
 		}
-	this->set_contact();
+	this->setContact();
 	this->index++;
 	if (this->index > 7)
 		this->index = 0;
@@ -68,12 +68,12 @@ void phonebook::SEARCH()
 {
 	int choice;
 
-	if (this->contacts[0].get_first_name().empty())
+	if (this->contacts[0].getFirstName().empty())
 	{
 		std::cout << "No contacts yet" << std::endl;
 		return ;
 	}
-	print_header();
+	printHeader();
 	std::cout << "Enter a index\n";
 	std::cin >> choice;
 	if (std::cin.fail())
@@ -86,19 +86,19 @@ void phonebook::SEARCH()
 		std::cout << "Index out of limits\n";
 		return ;
 	}
-	if (this->contacts[choice].get_first_name().empty())
+	if (this->contacts[choice].getFirstName().empty())
 	{
 		std::cout << "This contact does not exist\n";
 		return ;
 	}
-	std::cout << this->contacts[choice].get_first_name() << '\n';
-	std::cout << this->contacts[choice].get_last_name() << '\n';
-	std::cout << this->contacts[choice].get_nick_name() << '\n';
-	std::cout << this->contacts[choice].get_phone_number() << '\n';
-	std::cout << this->contacts[choice].get_darkest_secret() << '\n';
+	std::cout << this->contacts[choice].getFirstName() << '\n';
+	std::cout << this->contacts[choice].getLastName() << '\n';
+	std::cout << this->contacts[choice].getNickName() << '\n';
+	std::cout << this->contacts[choice].getPhoneNumber() << '\n';
+	std::cout << this->contacts[choice].getDarkestSecret() << '\n';
 }
 
-void phonebook::print_params(std::string str)
+void phonebook::printParams(std::string str)
 {
 	if (str.length() <= 10)
 	{
@@ -110,30 +110,30 @@ void phonebook::print_params(std::string str)
 	return ;
 }
 
-void phonebook::print_content(int index)
+void phonebook::printContent(int index)
 {
-	std::cout << "|		";
+	std::cout << "|           ";
 	std::cout << index;
 	std::cout << '|';
-	print_params(this->contacts[index].get_first_name());
+	printParams(this->contacts[index].getFirstName());
 	std::cout << '|';
-	print_params(this->contacts[index].get_last_name());
+	printParams(this->contacts[index].getLastName());
 	std::cout << '|';
-	print_params(this->contacts[index].get_nick_name());
+	printParams(this->contacts[index].getNickName());
 	std::cout << '|';
 	std::cout << '\n';
 }
 
-void phonebook::print_header(void)
+void phonebook::printHeader(void)
 {
-	std::cout << "|		index | First Name | Last Name | Nick Name |" << '\n';
-	std::cout << "|-----------|------------|-----------|-----------|" << '\n';
+	std::cout << "|    index   | First Name | Last Name | Nick Name |" << '\n';
+	std::cout << "|------------|------------|------------|------------|" << '\n';
 	for (int i = 0; i < 8; i++)
 	{
-		if (this->contacts[i].get_first_name().empty())
+		if (this->contacts[i].getFirstName().empty())
 			return ;
-		print_content(i);
-		std::cout << "|-----------|------------|-----------|-----------|" << '\n';
+		printContent(i);
+		std::cout << "|------------|------------|------------|------------|" << '\n';
 	}
 }
 
