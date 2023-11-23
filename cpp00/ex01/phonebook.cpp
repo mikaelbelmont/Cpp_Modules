@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:26:19 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/23 15:36:05 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:42:10 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,31 @@ void phonebook::printParams(std::string str)
 	return ;
 }
 
+std::string 	phonebook::getInfo(std::string info)
+{
+	std::string tmp;
+	
+	if (info.length() >= 10)
+	{
+		tmp = info.substr(0, 9);
+		tmp.append(".");
+	}
+	else
+	{
+		tmp = info;
+		while(tmp.length() < 10)
+			tmp.insert(0, " ");
+	}
+	return tmp;
+}
+
+void phonebook::setInfo(std::string info)
+{
+	std::string tmp;
+
+	//print in order tmp = getInfo(names)
+}
+
 void phonebook::printContent(int index)
 {
 	std::cout << "|           ";
@@ -126,14 +151,14 @@ void phonebook::printContent(int index)
 
 void phonebook::printHeader(void)
 {
-	std::cout << "|    index   | First Name | Last Name | Nick Name |" << '\n';
-	std::cout << "|------------|------------|------------|------------|" << '\n';
+	std::cout << "|  index   |First Name| Last Name| Nick Name|" << '\n';
+	std::cout << "|----------|----------|----------|----------|" << '\n';
 	for (int i = 0; i < 8; i++)
 	{
 		if (this->contacts[i].getFirstName().empty())
 			return ;
 		printContent(i);
-		std::cout << "|------------|------------|------------|------------|" << '\n';
+		std::cout << "|----------|----------|----------|----------|" << '\n';
 	}
 }
 

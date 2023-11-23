@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:26:35 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/23 15:15:42 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:41:01 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "contacts.hpp"
 #include <iomanip>
 #include <cstdlib>
+#include <string>
 
 struct data
 {
@@ -32,6 +33,8 @@ class phonebook
 		void printParams(std::string str);
 		void printContent(int index);
 		void printHeader(void);
+		std::string getInfo(std::string);
+		void phonebook::setInfo(std::string info);
 
 	public:
 		phonebook(void);
