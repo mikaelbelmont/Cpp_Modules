@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:26:19 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/23 18:42:10 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:20:06 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,23 +91,11 @@ void phonebook::SEARCH()
 		std::cout << "This contact does not exist\n";
 		return ;
 	}
-	std::cout << this->contacts[choice].getFirstName() << '\n';
-	std::cout << this->contacts[choice].getLastName() << '\n';
-	std::cout << this->contacts[choice].getNickName() << '\n';
-	std::cout << this->contacts[choice].getPhoneNumber() << '\n';
-	std::cout << this->contacts[choice].getDarkestSecret() << '\n';
-}
-
-void phonebook::printParams(std::string str)
-{
-	if (str.length() <= 10)
-	{
-		std::cout << std::setw(10) << str;
-		return ;
-	}
-	std::cout << std::setw(9) << str.substr(0, 9);
-	std::cout << std::setw(1) << '.';
-	return ;
+	std::cout << "First name:" << this->contacts[choice].getFirstName() << '\n';
+	std::cout << "Last name:" <<this->contacts[choice].getLastName() << '\n';
+	std::cout << "Nick name:" <<this->contacts[choice].getNickName() << '\n';
+	std::cout << "Phone number:" <<this->contacts[choice].getPhoneNumber() << '\n';
+	std::cout << "Darkest secret:" <<this->contacts[choice].getDarkestSecret() << '\n';
 }
 
 std::string 	phonebook::getInfo(std::string info)
@@ -128,16 +116,39 @@ std::string 	phonebook::getInfo(std::string info)
 	return tmp;
 }
 
-void phonebook::setInfo(std::string info)
+// void phonebook::setInfo(std::string str)
+// {
+// 	std::string tmp;
+
+// 	tmp = phonebook::getInfo(str);
+// 	std::cout << tmp;
+// 	std::cout << "|";
+// 	tmp = phonebook::getInfo(str);
+// 	std::cout << tmp;
+// 	std::cout << "|";
+// 	tmp = phonebook::getInfo(str);
+// 	std::cout << tmp;
+// 	std::cout << "|";
+// }
+
+void phonebook::printParams(std::string str)
 {
 	std::string tmp;
 
-	//print in order tmp = getInfo(names)
+	tmp = phonebook::getInfo(str);
+	std::cout << tmp;
+	//std::cout << "|";
+	// tmp = phonebook::getInfo(str);
+	// std::cout << tmp;
+	//std::cout << "|";
+	// tmp = phonebook::getInfo(str);
+	// std::cout << tmp;
+	//std::cout << "|";
 }
 
 void phonebook::printContent(int index)
 {
-	std::cout << "|           ";
+	std::cout << "|         ";
 	std::cout << index;
 	std::cout << '|';
 	printParams(this->contacts[index].getFirstName());
