@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:29 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 16:38:07 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:36:25 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,31 @@ void Harl::error(void)
 
 Harl::Harl(void)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called\n";
+	this->comment[0].name = "DEBUG";
+	this->comment[0].action = &Harl::debug;
+	this->comment[1].name = "INFO";
+	this->comment[1].action = &Harl::info;
+	this->comment[2].name = "WARNING";
+	this->comment[2].action = &Harl::warning;
+	this->comment[3].name = "ERROR";
+	this->comment[3].action = &Harl::error;
 }
 
 Harl::~Harl(void)
 {
-	std::cout << "Default destructor called" << std::endl;
+	std::cout << "Default destructor called\n";
+}
+
+void Harl::complain(std::string level)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == this->comment[i].name)
+		{
+			(this->*comment[i].action)();
+			return ;
+		}
+	}
+	std::cout << "Enter one of the comments" << std::endl;
 }
