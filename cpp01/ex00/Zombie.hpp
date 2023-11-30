@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:28:43 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 15:28:44 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:53:26 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Zombie
 {
     public:
         Zombie(std::string name);
+        Zombie();
         ~Zombie();
         void announce( void );
-        void randomChump(std::string name);
     private:
         std::string name;
 };

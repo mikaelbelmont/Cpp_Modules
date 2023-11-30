@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:28:47 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/30 17:03:13 by mbarreto         ###   ########.fr       */
+/*   Created: 2023/11/30 11:54:20 by mbarreto          #+#    #+#             */
+/*   Updated: 2023/11/30 11:54:21 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Zombie.hpp>
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main(void)
+#include <iostream>
+
+class Harl
 {
-	int i = 0;
-	
-	Zombie *zombies = ZombieHorde(i, "Mikael");
+	typedef struct s_comment
+	{
+		std::string name;
+		void (Harl::*action)(void);
+	}t_comment;
 
-	if (i)
-		zombies->announce();
-	delete[] zombies;
-}
+	private:
+		t_comment comment[4];
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+
+	public:
+		Harl(void);
+		~Harl(void);
+		void complain(std::string level);
+};
+
+#endif

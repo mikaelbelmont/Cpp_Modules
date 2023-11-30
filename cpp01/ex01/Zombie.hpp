@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:28:50 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 15:28:51 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:12:43 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie();
 		void announce(void);
-		void set_name(std::string name);
+		void setName(std::string name);
 
 	private:
 		std::string name;

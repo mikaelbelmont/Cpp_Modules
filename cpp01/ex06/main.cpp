@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:28:47 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/30 17:03:13 by mbarreto         ###   ########.fr       */
+/*   Created: 2023/11/30 11:45:33 by mbarreto          #+#    #+#             */
+/*   Updated: 2023/11/30 12:55:57 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Zombie.hpp>
+#include "Harl.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
-	int i = 0;
-	
-	Zombie *zombies = ZombieHorde(i, "Mikael");
+	Harl Harl;
 
-	if (i)
-		zombies->announce();
-	delete[] zombies;
+	if (argc != 2 || !argv[1])
+	{
+		std::cout << "Select one of those: DEBUG, INFO, WARNING or ERROR" << std::endl;
+		return(0);
+	}
+	Harl.complain(argv[1]);
+	return 0;
 }

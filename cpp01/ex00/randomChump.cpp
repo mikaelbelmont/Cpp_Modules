@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:28:38 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 15:28:39 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:58:03 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void randomChump(std::string name)
 {
-	Zombie new_zombie(name);
+	Zombie newZombie(name);
 }

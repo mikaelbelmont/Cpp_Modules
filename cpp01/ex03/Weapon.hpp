@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:06 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 15:29:07 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:26:48 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Weapon
 		Weapon(void);
 		Weapon(const std::string type);
 		~Weapon(void);
-		const std::string &get_type(void);
-		void set_type(const std::string type);
+		const std::string &getType(void);
+		void setType(const std::string type);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:26:19 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/24 17:20:06 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:51:54 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,20 +116,6 @@ std::string 	phonebook::getInfo(std::string info)
 	return tmp;
 }
 
-// void phonebook::setInfo(std::string str)
-// {
-// 	std::string tmp;
-
-// 	tmp = phonebook::getInfo(str);
-// 	std::cout << tmp;
-// 	std::cout << "|";
-// 	tmp = phonebook::getInfo(str);
-// 	std::cout << tmp;
-// 	std::cout << "|";
-// 	tmp = phonebook::getInfo(str);
-// 	std::cout << tmp;
-// 	std::cout << "|";
-// }
 
 void phonebook::printParams(std::string str)
 {

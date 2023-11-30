@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:01 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/15 15:29:02 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:22:00 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
 	public:
 		HumanB(const std::string &name);
 		~HumanB(void);
-		void set_weapon(Weapon &weapon);
+		void setWeapon(Weapon &weapon);
 		void attack(void);
 };
 

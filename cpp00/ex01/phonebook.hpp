@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:26:35 by mbarreto          #+#    #+#             */
-/*   Updated: 2023/11/24 17:02:31 by mbarreto         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:38:05 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class phonebook
 		void printContent(int index);
 		void printHeader(void);
 		std::string getInfo(std::string info);
-		void setInfo(std::string str);
 
 	public:
 		phonebook(void);
