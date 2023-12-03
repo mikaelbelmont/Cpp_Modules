@@ -13,6 +13,6 @@ int main(void)
 	}
 	aCopy.attack(b.getName());
 	b.beRepared(0);
-	b.beRepared(0);
+	b.beRepared(1);
 	a.beRepared(1);
 }
