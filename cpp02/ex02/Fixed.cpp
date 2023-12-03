@@ -15,13 +15,13 @@ Fixed::Fixed(Fixed const &number)
 Fixed::Fixed(const int int_nb)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->value = int_nb << Fixed::bits;
+	this->value = int_nb * (1 << Fixed::bits);
 }
 
 Fixed::Fixed(const float fract_nb)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->value = roundf(value * (1 << Fixed::bits));
+	this->value = roundf(fract_nb * (1 << Fixed::bits));
 }
 
 Fixed &Fixed::operator=(Fixed const &copy)
@@ -104,13 +104,6 @@ bool Fixed::operator!=(const Fixed &number)
 	return (false);
 }
 
-bool Fixed::operator==(const Fixed &number)
-{
-	if (this->value == number.getRawBits())
-		return (true);
-	return (false);
-}
-
 Fixed Fixed::operator+(const Fixed &number)
 {
 	Fixed num((this->toFloat() + number.toFloat()));
@@ -159,10 +152,6 @@ Fixed Fixed::operator--(int)
 	Fixed tmp(this->value * toFloat());
 	this->value--;
 	return tmp;
-}
-
-Fixed::~Fixed()
-{
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)

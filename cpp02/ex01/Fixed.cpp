@@ -14,14 +14,14 @@ Fixed::Fixed(Fixed const &number)
 
 Fixed::Fixed(const int int_nb)
 {
-	std::cout << "Float constructor called" << std::endl;
-	this->value = int_nb << Fixed::bits;
+	std::cout << "Int constructor called" << std::endl;
+	this->value = int_nb * (1 << Fixed::bits);
 }
 
 Fixed::Fixed(const float fract_nb)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->value = roundf(value * (1 << Fixed::bits));
+	this->value = roundf(fract_nb * (1 << Fixed::bits));
 }
 
 Fixed &Fixed::operator=(Fixed const &copy)
