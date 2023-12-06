@@ -11,7 +11,7 @@ class ClapTrap
 		unsigned int hitPoints;
 		unsigned int energyPoints;
 		unsigned int attackDamage;
-		//unsigned int maxHitPoints;
+		unsigned int maxHitPoints;
 	
 	public:
 		ClapTrap(void);

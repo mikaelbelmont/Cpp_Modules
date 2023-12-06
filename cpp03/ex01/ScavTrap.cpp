@@ -57,41 +57,41 @@ void ScavTrap::guardGate(void) {
     std::cout << "ScavTrap " << this->name << " is now in Gate keeper mode" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
-    if (this->hitPoints <= 0)
-	{
-		std::cout << this->name << " it's dead." << std::endl;
-		return ;
-	}
-    if (!this->energyPoints) {
-        std::cout << "There is no more energy points available" << std::endl;
-        return;
-    }
-    std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
-    this->energyPoints--;
-}
+// void ScavTrap::attack(const std::string& target) {
+//     if (this->hitPoints <= 0)
+// 	{
+// 		std::cout << this->name << " it's dead." << std::endl;
+// 		return ;
+// 	}
+//     if (!this->energyPoints) {
+//         std::cout << "There is no more energy points available" << std::endl;
+//         return;
+//     }
+//     std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+//     this->energyPoints--;
+// }
 
-void ScavTrap::beRepaired(unsigned int amount) {
-    if (this->hitPoints <= 0)
-	{
-		std::cout << this->name << " it's dead." << std::endl;
-		return ;
-	}
-    if (!this->energyPoints) {
-        std::cout << "There is no more energy points available" << std::endl;
-        return;
-    }
-    if (amount == 0) {
-        std::cout << "You need an amount of at least 1 to recover" << std::endl;
-        return;
-    }
-    if (this->hitPoints == 100) {
-        std::cout << "You cannot have more HP" << std::endl;
-        return;
-    }
-    this->hitPoints += amount;
-    if (this->hitPoints > 100)
-        this->hitPoints = 100;
-    this->energyPoints--;
-    std::cout << "ScavTrap " << this->name << " repaired " << amount << " now is having " << this->hitPoints << std::endl;
-}
+// void ScavTrap::beRepaired(unsigned int amount) {
+//     if (this->hitPoints <= 0)
+// 	{
+// 		std::cout << this->name << " it's dead." << std::endl;
+// 		return ;
+// 	}
+//     if (!this->energyPoints) {
+//         std::cout << "There is no more energy points available" << std::endl;
+//         return;
+//     }
+//     if (amount == 0) {
+//         std::cout << "You need an amount of at least 1 to recover" << std::endl;
+//         return;
+//     }
+//     if (this->hitPoints == 100) {
+//         std::cout << "You cannot have more HP" << std::endl;
+//         return;
+//     }
+//     this->hitPoints += amount;
+//     if (this->hitPoints > 100)
+//         this->hitPoints = 100;
+//     this->energyPoints--;
+//     std::cout << "ScavTrap " << this->name << " repaired " << amount << " now is having " << this->hitPoints << std::endl;
+// }

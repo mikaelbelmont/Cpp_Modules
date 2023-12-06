@@ -11,6 +11,7 @@ class ClapTrap
 		unsigned int hitPoints;
 		unsigned int energyPoints;
 		unsigned int attackDamage;
+		unsigned int maxHitPoints;
 	
 	public:
 		ClapTrap(void);
@@ -24,6 +25,10 @@ class ClapTrap
 		std::string getName(void);
 		unsigned int setAttack(unsigned int amount);
 		int getAttack(void);
+		int	getHeatlh(void);
+		void setHealth(unsigned int amount);
+		int	getEnergy(void);
+		void setEnergy(unsigned int amount);
 };
 
 #endif

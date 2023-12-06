@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Called default constructor" << std::endl;
+	std::cout << "Called default constructor from ClapTrap" << std::endl;
 	this->name = "";
 	this->hitPoints = 10;
 	this->energyPoints = 10;
@@ -35,7 +35,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& copy)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Called default destructor" << std::endl;
+	std::cout << "Called default destructor from ClapTrap" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -85,14 +85,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "At least 1 point to recover" << std::endl;
 		return ;
 	}
-	if (this->hitPoints == 10)
+	if (this->hitPoints == maxHitPoints)
 	{
 		std::cout << "Max hit points" << std::endl;
 		return ;
 	}
 	this->hitPoints += amount;
-	if (this->hitPoints > 10)
-		this->hitPoints = 10;
+	if (this->hitPoints > maxHitPoints)
+		this->hitPoints = maxHitPoints;
 	this->energyPoints--;
 	std::cout << "ClapTrap " << this->name << " repaired " << amount << 
 	" now is having " << this->hitPoints << std::endl;
@@ -121,7 +121,7 @@ int	ClapTrap::getHeatlh()
 void ClapTrap::setHealth(unsigned int amount)
 {
 	this->hitPoints = amount;
-	//this->maxHitPoints = amount;
+	this->maxHitPoints = amount;
 }
 
 int	ClapTrap::getEnergy()

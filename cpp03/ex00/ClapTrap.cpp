@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Called default constructor" << std::endl;
+	std::cout << "Called default constructor from ClapTrap" << std::endl;
 	this->name = "";
 	this->hitPoints = 10;
 	this->energyPoints = 10;
@@ -16,6 +16,7 @@ ClapTrap::ClapTrap(std::string name)
 	this->hitPoints = 10;
 	this->energyPoints = 10;
 	this->attackDamage = 0;
+	this->maxHitPoints = 10;
 }
 
 ClapTrap::ClapTrap(ClapTrap const& copy)
@@ -30,12 +31,13 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& copy)
 	this->hitPoints = copy.hitPoints;
 	this->energyPoints = copy.energyPoints;
 	this->attackDamage = copy.attackDamage;
+	this->maxHitPoints = copy.maxHitPoints;
 	return *this;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Called default destructor" << std::endl;
+	std::cout << "Called default destructor from ClapTrap" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -85,14 +87,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "At least 1 point to recover" << std::endl;
 		return ;
 	}
-	if (this->hitPoints == 10)
+	if (this->hitPoints == maxHitPoints)
 	{
 		std::cout << "Max hit points" << std::endl;
 		return ;
 	}
 	this->hitPoints += amount;
-	if (this->hitPoints > 10)
-		this->hitPoints = 10;
+	if (this->hitPoints > maxHitPoints)
+		this->hitPoints = maxHitPoints;
 	this->energyPoints--;
 	std::cout << "ClapTrap " << this->name << " repaired " << amount << 
 	" now is having " << this->hitPoints << std::endl;
@@ -111,4 +113,25 @@ unsigned int ClapTrap::setAttack(unsigned int amount)
 int ClapTrap::getAttack(void)
 {
 	return (this->attackDamage);
+}
+
+int	ClapTrap::getHeatlh()
+{
+	return (this->hitPoints);
+}
+
+void ClapTrap::setHealth(unsigned int amount)
+{
+	this->hitPoints = amount;
+	this->maxHitPoints = amount;
+}
+
+int	ClapTrap::getEnergy()
+{
+	return (this->energyPoints);
+}
+
+void ClapTrap::setEnergy(unsigned int amount)
+{
+	this->energyPoints = amount;
 }
