@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap{
@@ -16,6 +17,7 @@ class FragTrap : public ClapTrap{
     void highFivesGuys(void);
     void attack(const std::string &target);
     void beRepaired(unsigned int amount);
+    //void takeDamage(unsigned int amount);
 };
 
 #endif

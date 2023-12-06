@@ -20,6 +20,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(ClapTrap const& copy)
 {
+	std::cout << "Called copy constructor from ClapTrap" << std::endl;
 	*this = copy;
 }
 
@@ -39,26 +40,41 @@ ClapTrap::~ClapTrap(void)
 
 void ClapTrap::attack(const std::string& target)
 {
+	if (this->hitPoints <= 0)
+	{
+		std::cout << this->name << " it's dead." << std::endl;
+		return ;
+	}
 	if (this->energyPoints < 1)
 	{
 		std::cout << "No more energy points ):" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap" << this->name << " attacks " << target << 
+	std::cout << "ClapTrap " << this->name << " attacks " << target << 
 	", causing " << this->attackDamage << " points of damage!" << std::endl;
 	this->energyPoints--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->hitPoints > amount)
+	if (this->hitPoints >= amount)
 		this->hitPoints -= amount;
+	if (this->hitPoints <= 0)
+	{
+		std::cout << this->name << " it's dead." << std::endl;
+		return ;
+	}
 	else
-		this->hitPoints = 0;
+		std::cout << this->name << " took " << amount << " of damage." << std::endl;
 }
 
-void ClapTrap::beRepared(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->hitPoints <= 0)
+	{
+		std::cout << this->name << " it's dead." << std::endl;
+		return ;
+	}
 	if (this->energyPoints < 1)
 	{
 		std::cout << "No more energy points ):" << std::endl;
@@ -78,7 +94,7 @@ void ClapTrap::beRepared(unsigned int amount)
 	if (this->hitPoints > 10)
 		this->hitPoints = 10;
 	this->energyPoints--;
-	std::cout << "ClapTrap" << this->name << " repaired " << amount << 
+	std::cout << "ClapTrap " << this->name << " repaired " << amount << 
 	" now is having " << this->hitPoints << std::endl;
 }
 
@@ -87,7 +103,12 @@ std::string ClapTrap::getName(void)
 	return this->name;
 }
 
-unsigned int ClapTrap::getAttack(void)
+unsigned int ClapTrap::setAttack(unsigned int amount)
 {
-	return this->attackDamage;
+	return this->attackDamage = amount;
+}
+
+int ClapTrap::getAttack(void)
+{
+	return (this->attackDamage);
 }

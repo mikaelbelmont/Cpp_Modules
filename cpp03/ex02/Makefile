@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = fragTrap
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 

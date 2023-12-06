@@ -6,13 +6,54 @@ int main(void)
 	ClapTrap b = ClapTrap("B");
 	ClapTrap aCopy = ClapTrap(a);
 
-	for (int i = 0; i < 10; i++)
-	{
-		a.attack(b.getName());
-		b.takeDamage(a.getAttack());
-	}
-	aCopy.attack(b.getName());
-	b.beRepared(0);
-	b.beRepared(1);
-	a.beRepared(1);
+	//tests:
+
+	a.setAttack(5);
+	a.attack(b.getName());
+	b.takeDamage(a.getAttack());
+	b.attack(a.getName());
+	a.takeDamage(b.getAttack());
+	b.beRepared(2);
+
+	std::cout << std::endl;
+
+	// b.beRepared(10);
+	// a.setAttack(10);
+	// a.attack(b.getName());
+	// b.takeDamage(a.getAttack());
+	// b.setAttack(10);
+	// b.attack(a.getName());
+	// a.takeDamage(b.getAttack());
+
+	std::cout << std::endl;
+
+	// a.setAttack(9);
+	// a.attack(b.getName());
+	// b.takeDamage(a.getAttack());
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// a.setAttack(2);
+	// a.attack(b.getName());
+	// b.takeDamage(a.getAttack());
+	// b.beRepared(1);
+	// b.beRepared(1);
+	// b.attack(a.getName());
+	// a.takeDamage(b.getAttack());
+
+	std::cout << std::endl;
+
+	// aCopy.setAttack(5);
+	// aCopy.attack(b.getName());
+	// b.takeDamage(aCopy.getAttack());
+	// b.beRepared(1);
+	// a.attack(b.getName());
+	// b.takeDamage(a.getAttack());
 }
