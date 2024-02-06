@@ -1,32 +1,35 @@
 #include "Dog.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Dog::Dog(void) {
-    std::cout << "Called default constructor of Dog" << std::endl;
-    this->type = "Dog";
-    this->brain = new Brain();
+Dog::Dog() : Animal()
+{
+	setType("Dog");
+	this->brain = new Brain();
+	std::cout << getType() << " default constructor" << std::endl;
 }
 
-Dog::Dog(const std::string &idea) {
-    std::cout << "Called default constructor of Dog" << std::endl;
-    this->type = "Dog";
-    this->brain = new Brain(idea);
+Dog::Dog(const Dog &original) : Animal(original)
+{
+	this->_type = original._type;
+	this->brain = new Brain();
+	std::cout << getType() << " copy constructor" << std::endl;
 }
 
-Dog::Dog(Dog const& copy) : Animal(copy) {
-    *this = copy;
+Dog &Dog::operator=(const Dog &original)
+{
+	setType(original._type);
+	this->brain = new Brain();
+	return (*this);
 }
 
-Dog& Dog::operator=(Dog const& copy) {
-    this->type = copy.type;
-    this->brain = new Brain(*copy.brain);
-    return *this;
+Dog::~Dog()
+{
+	std::cout << getType() << " destructor called" << std::endl;
+	delete (this->brain);
 }
 
-Dog::~Dog(void) {
-    delete this->brain;
-    std::cout << "Called default destructor of Dog" << std::endl;
-}
-
-void Dog::makeSound(void) const {
-    std::cout << "Ãoão" << std::endl;
+void	Dog::makeSound()const
+{
+	std::cout << getType() << ": Ouf ouf" << std::endl;
 }

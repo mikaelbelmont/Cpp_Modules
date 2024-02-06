@@ -1,23 +1,29 @@
 #include "Dog.hpp"
+#include "Animal.hpp"
 
-Dog::Dog(void) {
-    std::cout << "Called default constructor of Dog" << std::endl;
-    this->type = "Dog";
+Dog::Dog() : Animal()
+{
+	setType("Dog");
+	std::cout << getType() << " default constructor" << std::endl;
 }
 
-Dog::Dog(Dog const& copy) : Animal(copy) {
-    *this = copy;
+Dog::Dog(const Dog &original) : Animal(original)
+{
+	*this = original;
 }
 
-Dog& Dog::operator=(Dog const& copy) {
-    this->type = copy.type;
-    return *this;
+Dog &Dog::operator=(const Dog &original)
+{
+	setType(original._type);
+	return (*this);
 }
 
-Dog::~Dog(void) {
-    std::cout << "Called default destructor of Dog" << std::endl;
+Dog::~Dog()
+{
+	std::cout << getType() << " destructor called" << std::endl;
 }
 
-void Dog::makeSound(void) const {
-    std::cout << "Ãoão" << std::endl;
+void	Dog::makeSound()const
+{
+	std::cout << getType() << ": Ouf ouf" << std::endl;
 }

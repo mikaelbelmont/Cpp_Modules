@@ -1,29 +1,17 @@
-SRC	=	Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		main.cpp
+NAME = Polymorphism
 
-OBJ	=	$(SRC:.cpp=.o)
+CC = c++
 
-NAME	=	polymorphism
-CC	=	g++
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -I. -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
-all:	$(NAME)
+SRCS = $(wildcard *.cpp)
 
-$(NAME):	$(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+all: $(NAME)
 
-%.o:	%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(SRCS)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+
 clean:
-	rm -rf $(OBJ)
+	rm -f $(NAME)
 
-fclean:	clean
-	rm -rf $(NAME)
-
-re:	fclean all
-
-.PHONY:	all clean fclean re
+re: clean all

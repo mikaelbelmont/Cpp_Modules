@@ -1,27 +1,39 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void) {
-    std::cout << "Called default constructor of WrongAnimal" << std::endl;
-    this->type = "WrongAnimal";
+WrongAnimal::WrongAnimal()
+{
+	std::cout << "Default WrongAnimal constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const& copy) {
-    *this = copy;
+WrongAnimal::WrongAnimal(const WrongAnimal &original)
+{
+	*this = original;
+	std::cout << "Copy WrongAnimal constructor called" << std::endl;
 }
 
-WrongAnimal& WrongAnimal::operator=(WrongAnimal const& copy) {
-    this->type = copy.type;
-    return *this;
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &original)
+{
+	this->_type = original._type;
+	std::cout << "Copy assignment operator WrongAnimal called" << std::endl;
+	return (*this);
 }
 
-WrongAnimal::~WrongAnimal(void) {
-    std::cout << "Called default destructor of WrongAnimal" << std::endl;
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "WrongAnimal destrocter called " << std::endl;
 }
 
-void WrongAnimal::makeSound(void) const {
-    std::cout << "Default sound" << std::endl;
+void	WrongAnimal::setType(std::string type)
+{
+	this->_type = type;
 }
 
-std::string WrongAnimal::getType(void) const {
-    return this->type;
+std::string	WrongAnimal::getType(void)const
+{
+	return (this->_type);
+}
+
+void	WrongAnimal::makeSound() const
+{
+	std::cout << "Wrong Animal here" << std::endl;
 }
